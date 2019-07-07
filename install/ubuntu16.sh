@@ -1,4 +1,6 @@
 
+# curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun
+
 apt-get update 
 apt-get install -y --no-install-recommends apt-transport-https ca-certificates curl software-properties-common 
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add - 
