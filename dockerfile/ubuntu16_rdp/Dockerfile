@@ -23,7 +23,9 @@ RUN set -eux \
   && apt-get install -y --no-install-recommends xubuntu-desktop \
 # switch to aliyun 
   && cp /etc/apt/sources.list.aliyun /etc/apt/sources.list \
-  && apt-get update 
+  && apt-get update \
+  && sed -i 's/#quiet splash/quiet splash 3/' /etc/default/grub \
+  && update-grub
 
 EXPOSE 22
 EXPOSE 3389
