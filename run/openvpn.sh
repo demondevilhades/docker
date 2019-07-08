@@ -25,7 +25,7 @@ docker run --name openvpn-test --rm -it -v $OPENVPN_DATA:/etc/openvpn kylemanna/
 docker run --name openvpn-test --rm -it -v $OPENVPN_DATA:/etc/openvpn kylemanna/openvpn:2.4 opvn_getclient $OPENVPN_NAME > $OPENVPN_DATA/$OPENVPN_NAME.ovpn 
 
 # 5. run openvpn docker container
-docker run -itd --name openvpn-test --privileged -v $OPENVPN_DATA/etc/openvpn -p 1194:1194 kylemanna/openvpn:2.4 
+docker run -itd --name openvpn-test --privileged -v $OPENVPN_DATA:/etc/openvpn -p 1194:1194 kylemanna/openvpn:2.4 
 
 # 
 
