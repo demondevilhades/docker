@@ -1,14 +1,14 @@
 
 # to check 
 
-OPENVPN_DATA="***\openvpndata" 
-OPENVPN_NAME="clientname" 
-IP="8.8.8.8" 
+OPENVPN_DATA=***\openvpndata 
+OPENVPN_NAME=*** 
+IP=*** 
 
 mkdir $OPENVPN_DATA
 
 # 1. gen config (-u udp://8.8.8.8)
-docker run --name openvpn-test --rm -it -v $OPENVPN_DATA:/etc/openvpn kylemanna/openvpn:2.4 opvn_genconfig 
+docker run --name openvpn-test --rm -it -v $OPENVPN_DATA:/etc/openvpn kylemanna/openvpn:2.4 opvn_genconfig -u tcp://$IP 
 
 # 2. gen private key
 docker run --name openvpn-test --rm -it -v $OPENVPN_DATA:/etc/openvpn kylemanna/openvpn:2.4 opvn_initpki 
