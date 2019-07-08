@@ -1,7 +1,7 @@
 
 # to check 
 
-OPENVPN_DATA="C:\zs\workspace\docker_run\v\zs\openvpndata" 
+OPENVPN_DATA="***\openvpndata" 
 OPENVPN_NAME="clientname" 
 IP="8.8.8.8" 
 
