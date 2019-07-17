@@ -2,6 +2,9 @@
 docker run  -itd --name ss -e PASSWORD=zs654321 -p 8388:8388 -p 8388:8388/udp -d --restart always shadowsocks/shadowsocks-libev
 
 # 
+# wget http://update.aegis.aliyun.com/download/uninstall.sh
+# chmod +x uninstall.sh
+# ./uninstall.sh
 # wget http://update.aegis.aliyun.com/download/quartz_uninstall.sh
 # chmod x quartz_uninstall.sh
 # ./quartz_uninstall.sh
