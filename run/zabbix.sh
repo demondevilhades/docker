@@ -35,6 +35,7 @@ docker run --name zabbix-web-nginx-mysql -itd \
 -e MYSQL_USER="zabbix" \
 -e MYSQL_PASSWORD="zabbix" \
 -e MYSQL_ROOT_PASSWORD="root" \
+-e TZ="Asia/Hong_Kong" \
 -p 80:80 \
 -d zabbix/zabbix-web-nginx-mysql:latest
 
