@@ -1,8 +1,4 @@
 
-# docker-compose -f docker-compose.yml up -d
-# docker-compose -f docker-compose.yml down
-# http://localhost:38080/
-
 version: '2'
 
 volumes:
