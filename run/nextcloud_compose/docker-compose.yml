@@ -1,0 +1,48 @@
+
+# docker-compose -f docker-compose.yml up -d
+# docker-compose -f docker-compose.yml down
+# http://localhost:38080/
+
+version: '2'
+
+volumes:
+  nextcloud:
+  apps:
+  config:
+  data:
+  theme:
+  db:
+
+services:
+  nextcloud-db:
+    image: mysql
+    command: [mysqld, --character-set-server=utf8, --collation-server=utf8_bin, --default-authentication-plugin=mysql_native_password]
+    volumes:
+      - db:/var/lib/mysql
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=nextcloud
+      - MYSQL_USER=nextcloud
+      - MYSQL_PASSWORD=nextcloud
+
+  nextcloud-app:
+    image: nextcloud
+    ports:
+      - 38080:80
+    links:
+      - nextcloud-db
+    volumes:
+      - nextcloud:/var/www/html
+      - apps:/var/www/html/custom_apps
+      - config:/var/www/html/config
+      - data:/var/www/html/data
+      - theme:/var/www/html/themes/my_theme
+    restart: always
+    environment:
+      - NEXTCLOUD_ADMIN_USER=admin
+      - NEXTCLOUD_ADMIN_PASSWORD=admin
+      - MYSQL_DATABASE=nextcloud
+      - MYSQL_USER=nextcloud
+      - MYSQL_PASSWORD=nextcloud
+      - MYSQL_HOST=nextcloud-db
