@@ -1,6 +1,7 @@
 
 docker run -itd \
 --name mysql-test \
+-e TZ=Asia/Shanghai \
 -e MYSQL_ROOT_PASSWORD=root \
 -v ***/mysql:/var/lib/mysql \
 -p 10001:22 \
