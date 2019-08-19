@@ -1,5 +1,5 @@
 
-docker run  -itd --name ss -e PASSWORD=zs654321 -p 8388:8388 -p 8388:8388/udp -d --restart always shadowsocks/shadowsocks-libev
+docker run  -itd --name ss -e PASSWORD=123 -p 8388:8388 -p 8388:8388/udp -d --restart always shadowsocks/shadowsocks-libev
 
 # 
 # wget http://update.aegis.aliyun.com/download/uninstall.sh
