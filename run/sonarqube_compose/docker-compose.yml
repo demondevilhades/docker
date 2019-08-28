@@ -1,0 +1,36 @@
+version: '2'
+networks:
+  bridge:
+    driver: bridge
+services:
+  web:
+    image: sonarqube
+    container_name: sonarqube-dev
+    depends_on:
+      - db
+    ports:
+      - 9000:9000
+    environment:
+      - TZ=Asia/Shanghai
+      - SONARQUBE_JDBC_USERNAME=${DB_USER}
+      - SONARQUBE_JDBC_PASSWORD=${DB_PASSWORD}
+      - SONARQUBE_JDBC_URL=${DB_URL}
+    volumes:
+      - ***\sonarqube\conf:/opt/sonarqube/conf
+      - ***\sonarqube\data:/opt/sonarqube/data
+      - ***\sonarqube\logs:/opt/sonarqube/logs
+      - ***\sonarqube\extensions:/opt/sonarqube/extensions
+    networks:
+      - bridge
+  db:
+    image: postgres
+    container_name: postgres-dev
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+    volumes:
+      - ***\postgresql:/var/lib/postgresql/data
+    networks:
+      - bridge
