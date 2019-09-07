@@ -1,25 +1,30 @@
 
-mkdir $JENKINS_HOME/jenkins-install-plugins-shell
-chmod 755 $JENKINS_HOME/jenkins-install-plugins-shell
-cp ./install-plugins.sh $JENKINS_HOME/jenkins-install-plugins-shell/
-cp ./plugins.txt $JENKINS_HOME/jenkins-install-plugins-shell/
-cp ./jenkins-support $JENKINS_HOME/jenkins-install-plugins-shell/
-cd $JENKINS_HOME/jenkins-install-plugins-shell
-export JENKINS_WAR_PATH=$JENKINS_HOME/war/
-./install-plugins.sh < plugins.txt
+export JENKINS_HOME=/home/jenkins/
+export MAVEN_HOME=/opt/apache-maven-3.6.1
+export MAVEN_REPOSITORY=/data/maven
+export PATH=$MAVEN_HOME/bin:$PATH
 
 docker run -itd \
 --name jenkins-dev \
 --privileged=true \
 --env JAVA_OPTS=-Djava.awt.headless=true \
 -v $JENKINS_HOME:/var/jenkins_home \
+-v $MAVEN_HOME:/var/maven_home \
+-v $MAVEN_REPOSITORY:/data/maven \
+-e MAVEN_HOME=/var/maven_home \
+-e MAVEN_REPOSITORY=$MAVEN_REPOSITORY \
 -e TZ=Asia/Shanghai \
 -p 8080:8080 \
 -p 50000:50000 \
-jenkins/jenkins:lts 
+demondevilhades/jenkins:lts
 
 docker exec -it jenkins-dev cat /var/jenkins_home/secrets/initialAdminPassword
 
+# 0
+# /user/admin/configure
+
+# 1
+# /pluginManager/advanced
 # http://mirrors.jenkins-ci.org/status.html
 # http://localhost:8080/pluginManager/advanced
 # http://updates.jenkins.io/update-center.json
@@ -28,5 +33,19 @@ docker exec -it jenkins-dev cat /var/jenkins_home/secrets/initialAdminPassword
 # https://mirrors.tuna.tsinghua.edu.cn/jenkins/updates/update-center.json
 # http://mirror.esuni.jp/jenkins/updates/update-center.json
 
-# http://localhost:8080/pluginManager/available
+# 2
+# /configureTools/
+# /var/maven_home/conf/settings.xml
+
+# 3
+# /credentials/store/system/domain/_/newCredentials
+
+# 4
+# 
+# $MAVEN_HOME/bin/mvn
+
+# 5
+# scp
+# kill -9 `jps | grep *** | awk '{print $1}'`
+# restart
 
