@@ -38,14 +38,21 @@ docker exec -it jenkins-dev cat /var/jenkins_home/secrets/initialAdminPassword
 # /var/maven_home/conf/settings.xml
 
 # 3
-# /credentials/store/system/domain/_/newCredentials
+# configure
+# GIT_SSL_NO_VERIF=1
+# http_proxy=ip:port
+# https_proxy=ip:port
 
 # 4
+# /credentials/store/system/domain/_/newCredentials
+
+# 5
 # 
 # $MAVEN_HOME/bin/mvn
 
-# 5
+# 6
 # scp
 # kill -9 `jps | grep *** | awk '{print $1}'`
+# nohup java -jar ***.jar > /dev/null 2>&1 &
 # restart
 
