@@ -21,10 +21,10 @@ demondevilhades/jenkins:lts
 docker exec -it jenkins-dev cat /var/jenkins_home/secrets/initialAdminPassword
 
 # 0
-# /user/admin/configure
+# url: /user/admin/configure
 
 # 1
-# /pluginManager/advanced
+# url: /pluginManager/advanced
 # http://mirrors.jenkins-ci.org/status.html
 # http://localhost:8080/pluginManager/advanced
 # http://updates.jenkins.io/update-center.json
@@ -34,7 +34,7 @@ docker exec -it jenkins-dev cat /var/jenkins_home/secrets/initialAdminPassword
 # http://mirror.esuni.jp/jenkins/updates/update-center.json
 
 # 2
-# /configureTools/
+# url: /configureTools/
 # /var/maven_home/conf/settings.xml
 
 # 3
@@ -44,7 +44,7 @@ docker exec -it jenkins-dev cat /var/jenkins_home/secrets/initialAdminPassword
 # https_proxy=ip:port
 
 # 4
-# /credentials/store/system/domain/_/newCredentials
+# url: /credentials/store/system/domain/_/newCredentials
 
 # 5
 # 
@@ -56,3 +56,6 @@ docker exec -it jenkins-dev cat /var/jenkins_home/secrets/initialAdminPassword
 # nohup java -jar ***.jar > /dev/null 2>&1 &
 # restart
 
+# 7
+# find ./ -mtime +7 -name '*' | xargs rm -rf
+# 
