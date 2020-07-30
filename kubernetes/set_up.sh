@@ -155,7 +155,7 @@ kubectl get pod,svc
 
 ######### 9. deploy Dashboard
 
-kubectl apply -f http://raw.githubusercontent.com/kubernetes/dashboard/v2.0.0-beta8/aio/deploy/recommended.yaml
+kubectl apply -f http://raw.githubusercontent.com/kubernetes/dashboard/v2.0.3/aio/deploy/recommended.yaml
 
 # kubectl get pods -n kubernetes-dashboard
 
