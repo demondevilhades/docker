@@ -175,6 +175,34 @@ kubectl describe secrets -n kube-system $(kubectl -n kube-system get secret | aw
 
 #################################################################################
 
+# other
+
+kubectl get ep
+
+# helm
+
+wget https://get.helm.sh/helm-v3.2.4-linux-amd64.tar.gz
+tar zxvf helm-v3.2.4-linux-amd64.tar.gz
+mv linux-amd64/helm /usr/bin/
+
+helm repo list
+helm repo add stable http://mirror.azure.cn/kubernetes/charts
+
+helm search repo <REPO NAME>
+
+helm install <NAME>  <REPO NAME>
+
+helm list
+
+
+helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+helm install my-release ingress-nginx/ingress-nginx
+
+
+helm create mychart
+
+#################################################################################
+
 # deployment
 
 kubectl create deployment <APP NAME> --image=<IMAGE NAME> --dry-run -o yaml > deploy.yaml
@@ -185,7 +213,16 @@ kubectl get pods
 
 kubectl logs <POD NAME>
 
-kubectl expose deployment <APP NAME> --port=80 --target-port=8080 --type=NodePort --dry-run -o yaml > svc.yaml
+kubectl expose [--name=<SERVICE NAME>] deployment <APP NAME> --port=80 --target-port=8080 --type=NodePort --dry-run -o yaml > svc.yaml
+
+# nodePort: 30XXX
+
+kubectl apply -f svc.yaml
+
+kubectl delete deploy/[APP NAME]
+kubectl delete svc/[SERVICE NAME]
+
+
 
 
 #################################################################################
@@ -203,4 +240,9 @@ docker tag <IMAGE ID> <REPOSITORY>:<TAG>
 docker push <REPOSITORY>:<TAG>
 
 ssh root@ip 'docker save <REPOSITORY>:<TAG>'|docker load
+
+
+
+
+
 
