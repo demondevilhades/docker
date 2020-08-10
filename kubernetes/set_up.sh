@@ -199,7 +199,18 @@ helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
 helm install my-release ingress-nginx/ingress-nginx
 
 
-helm create mychart
+helm create <CHART NAME>
+helm install <NAME> <CHART NAME>
+
+# values.yaml --> {{ Values.xxx }}
+# {{ .Release.Name }}
+
+helm upgrade <NAME> --set XXX=XXX
+
+# helm history <NAME>
+
+# helm rollback <NAME> <REVISION>
+
 
 #################################################################################
 
