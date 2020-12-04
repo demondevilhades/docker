@@ -10,4 +10,6 @@ docker commit -a "awesome" *** REPOSITORY:TAG
 
 docker save -o ***.tar REPOSITORY:TAG
 
+docker save REPOSITORY:TAG | ssh root@ip 'docker load'
+
 ssh root@ip 'docker save REPOSITORY:TAG'|docker load
