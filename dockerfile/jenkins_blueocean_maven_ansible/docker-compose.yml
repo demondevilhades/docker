@@ -1,7 +1,7 @@
 version: '2.4'
 services:
   kenkins:
-    image: "jenkinsci/blueocean-maven-ansible:latest"
+    image: "jenkinsci/blueocean-maven-npm-ansible:latest"
     restart: always
     privileged: true
     ports:
