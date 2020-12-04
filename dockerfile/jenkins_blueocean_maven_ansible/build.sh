@@ -10,5 +10,5 @@
 # sed -i '159i\    <mirror>' apache-maven-3.6.3/conf/settings.xml
 # sed -i '55i\  <localRepository>/home/maven/repo</localRepository>' apache-maven-3.6.3/conf/settings.xml
 
-docker build -t jenkinsci/blueocean-maven-ansible:latest .
+docker build -t jenkinsci/blueocean-maven-npm-ansible:latest .
 
