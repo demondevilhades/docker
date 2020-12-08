@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# Simple script that will display docker all repositorys with tags.
+# Simple script that will display all docker repositorys with tags.
 
 base_url="http://{ip}:5000/v2/"
 
