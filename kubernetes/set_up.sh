@@ -140,6 +140,8 @@ kubectl apply -f kube-flannel.yml
 
 ######### 7. kubernetes nodes join
 
+# kubeadm token create --print-join-command
+
 # kubeadm join 192.168.102.200:6443 --token sawty5.9i4we3bnucs2mu0w \
 #   --discovery-token-ca-cert-hash sha256:a379bab1a5d61c31c12979693fcd52f9e5d0253ca5ef3cceea44fb53e7d5bef3 
 
