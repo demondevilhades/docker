@@ -136,7 +136,7 @@ vim kube-flannel.yml
 
 kubectl apply -f kube-flannel.yml
 
-# kubectl describe pos <POD NAME> -n kube-system
+# kubectl describe pod/<POD NAME> -n kube-system
 
 ######### 7. kubernetes nodes join
 
