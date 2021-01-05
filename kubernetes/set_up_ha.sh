@@ -24,3 +24,7 @@ kubeadm join 192.168.102.200:16443 --token *** \
 
 # ifconfig cni0 down
 # ip link delete cni0
+
+# yum install bridge-utils
+# brctl delbr flannel.1
+# brctl delbr cni0
