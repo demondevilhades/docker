@@ -1,0 +1,9 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: test-admin
+  namespace: test
+rules:
+  - apiGroups: [""]
+    resources: ["secrets","configmaps","pods","services"]
+    verbs: ["get","watch","update","delete","list","replace","patch","create","proxy"]
