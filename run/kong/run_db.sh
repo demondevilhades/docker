@@ -1,6 +1,7 @@
 docker run -itd \
 	--name=postgres \
 	--restart=on-failure \
+	-e TZ='Asia/Hong_Kong' \
 	-e POSTGRES_DB=kong \
 	-e POSTGRES_USER=kong \
 	-e POSTGRES_PASSWORD=kong \
