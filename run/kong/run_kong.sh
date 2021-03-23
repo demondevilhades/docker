@@ -2,7 +2,7 @@
 # curl http://localhost:8001/
 
 docker run -itd \
-	--name=kong \
+	--name=kong:centos \
 	--restart=on-failure \
 	-e KONG_ADMIN_ACCESS_LOG=/dev/stdout \
 	-e KONG_ADMIN_ERROR_LOG=/dev/stderr \
@@ -15,7 +15,9 @@ docker run -itd \
 	-e KONG_PG_HOST=${db_ip} \
 	-e KONG_PG_USER=kong \
 	-e KONG_PG_PASSWORD=kong \
+	-e TZ='Asia/Hong_Kong' \
 	-v ./log:/data/log:rw \
+	-v /etc/localtime:/etc/localtime:ro \
 	--health-cmd="kong health" \
 	--health-interval=10s \
 	--health-timeout=10s \
