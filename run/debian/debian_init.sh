@@ -1,4 +1,5 @@
 #! /bin/bash
+# ERROR: networkmanager
 
 set -eux
 
