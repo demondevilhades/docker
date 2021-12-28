@@ -45,4 +45,4 @@ systemctl start docker
 # 11. client ca
 sz -be ca-key.pem ca.pem cert.pem key.pem
 
-
+docker -H=0.0.0.0:2375 --tlsverify --tlscacert=ca.pem --tlscert=server-cert.pem --tlskey=server-key.pem version
