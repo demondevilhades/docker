@@ -6,7 +6,7 @@ docker run  -itd --name ss -e PASSWORD=123 -p 8388:8388 -p 8388:8388/udp -d --re
 # chmod +x uninstall.sh
 # ./uninstall.sh
 # wget http://update.aegis.aliyun.com/download/quartz_uninstall.sh
-# chmod x quartz_uninstall.sh
+# chmod +x quartz_uninstall.sh
 # ./quartz_uninstall.sh
 # 
 # rm -rf /etc/init.d/agentwatch /usr/sbin/aliyun-service
