@@ -1,0 +1,6 @@
+
+docker run --rm -v ~/Downloads:/data/download you-get:3-alpine --format=TD_H265 "https://www.iqiyi.com/v_rxh2bvu0p8.html"
+docker run --rm -v ~/Downloads:/data/download you-get:3-alpine --format=TD_H265 "https://www.iqiyi.com/v_26gmlc1jgnk.html"
+docker run --rm -v ~/Downloads:/data/download you-get:3-alpine --format=TD_H265 "https://www.iqiyi.com/v_uaw8pluias.html"
+docker run --rm -v ~/Downloads:/data/download you-get:3-alpine --format=TD_H265 "https://www.iqiyi.com/v_14s4vuvftjg.html"
+
